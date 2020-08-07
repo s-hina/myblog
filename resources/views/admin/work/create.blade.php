@@ -1,10 +1,11 @@
 {{-- layouts/work.blade.phpを読み込む --}}
 @extends('layouts.work')
 
-{{-- work.blade.phpの@yield('title')に'職務履歴の新規作成'を埋め込む --}}
+
+{{-- work.blade.phpの@yield('title')に'職務経歴の新規作成'を埋め込む --}}
 @section('title', '職務経歴の新規作成')
 
-{{-- work.blade.phpの@yeild('content')に以下のタグを埋め込む --}}
+{{-- work.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
@@ -13,4 +14,4 @@
             </div>
         </div>
     </div>
-@endsection    
+@endsection
