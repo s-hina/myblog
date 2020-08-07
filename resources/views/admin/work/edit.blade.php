@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyBlog</title>
-</head>
-<body>
-    <h1>Myブログ編集画面</h1>
-</body>
-</html>
+{{-- layouts/work.blade.phpを読み込む --}}
+@extends('layouts.work')
+
+
+{{-- work.blade.phpの@yield('title')に'職務経歴の編集'を埋め込む --}}
+@section('title', '職務経歴の編集')
+
+{{-- work.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>職務経歴の編集</h2>
+            </div>
+        </div>
+    </div>
+@endsection
