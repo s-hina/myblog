@@ -17,7 +17,7 @@ class CreateWorksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->string('file_path')->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

@@ -23,9 +23,9 @@ class WorkController extends Controller
 
         if (isset($form['file'])) {
             $path = $request->file('file')->store('');
-            $work->file_path = basename($path);
+            $work->file = basename($path);
         } else {
-            $work->file_path = null;
+            $work->file = null;
         }
 
     // フォームから送信されてきた_tokenを削除する

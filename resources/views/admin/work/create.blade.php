@@ -34,7 +34,7 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="file">参考資料</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="file_path">
+                            <input type="file" class="form-control-file" name="file">
                         </div>
                     </div>
                     {{ csrf_field() }}
