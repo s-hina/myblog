@@ -28,13 +28,13 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="description">詳細</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="descreption" rows="15">{{ old('description') }}</textarea>
+                            <textarea class="form-control" name="description" rows="15">{{ old('description') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="file">参考資料</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="file">
+                            <input type="file" class="form-control-file" name="file_path">
                         </div>
                     </div>
                     {{ csrf_field() }}
