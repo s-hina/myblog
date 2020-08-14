@@ -30,13 +30,13 @@ class WorkController extends Controller
             $work->file = null;
         }
 
-    // フォームから送信されてきた_tokenを削除する
-    unset($form['_token']);
-    // フォームから送信されてきたimageを削除する
-    unset($form['image']);
+        // フォームから送信されてきた_tokenを削除する
+        unset($form['_token']);
+        // フォームから送信されてきたimageを削除する
+        unset($form['image']);
     
-    $work->fill($form);
-    $work->save();
+        $work->fill($form);
+        $work->save();
 
         return redirect('admin/work/create');
     }
