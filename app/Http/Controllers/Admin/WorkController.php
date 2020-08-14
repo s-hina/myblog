@@ -52,13 +52,45 @@ class WorkController extends Controller
         return view('admin.work.index', ['posts' => $posts, 'cond_name' => $cond_name]);
     }
 
-    public function edit()
-    {
-        return view('admin.work.edit');
+    public function edit(Request $request)
+    {   
+        //Work Modelからデータを取得
+        $work = Work::find($request->id);
+        if (empty($work)) {
+            abort(404);
+        }
+        return view('admin.work.edit', ['work_form' => $work]);
     }
 
-    public function updata()
+    public function update(Request $request)
     {
-        return redirect('admin/work/edit');
+        //Validationをかける
+        $this->validate($request, Work::$rules);
+        //Work Modelからデータを取得
+        $work = Work::find($request->id);
+        //送信されてきたフォームデータを格納
+        $work_form = $request->all();
+        if (isset($work_form['file'])) {
+            $path = $request->file('file')->store('');
+            $work->file = basename($path);
+            unset($work_form['file']);
+        } elseif (0 == strcmp($request->remove, 'true')) {
+            $work->file = null;
+        }
+        unset($work_form['_token']);
+        unset($work_form['remove']);
+
+        //該当するデータを上書きして保存
+        $work->fill($work_form)->save();
+
+        return redirect('admin/work/');
+    }
+
+    public function delete(Request $request)
+    {
+        $work = Work::find($request->id);
+        //削除する
+        $work->delete();
+        return redirect('admin/work/');
     }
 }
