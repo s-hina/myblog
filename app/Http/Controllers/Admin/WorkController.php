@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\History;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Work;
+use Carbon\Carbon;
 
 class WorkController extends Controller
 {
@@ -78,10 +80,16 @@ class WorkController extends Controller
             $work->file = null;
         }
         unset($work_form['_token']);
+        unset($work_form['file']);
         unset($work_form['remove']);
 
         //該当するデータを上書きして保存
         $work->fill($work_form)->save();
+
+        $histories = new History;
+        $histories->work_id = $work->id;
+        $histories->edited_at = Carbon::now();
+        $histories->save();
 
         return redirect('admin/work/');
     }
