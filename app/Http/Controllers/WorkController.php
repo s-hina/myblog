@@ -29,3 +29,4 @@ class WorkController extends Controller
         return view('work.index', ['headline' => $headline, 'posts' => $posts, "cond_name" => $cond_name]);
     }
 }
+
