@@ -11,7 +11,7 @@
                             <div class="caption mx-auto">
                                 <div class="image">
                                     @if ($headline->image_path)
-                                        <img src="{{ asset('storage/file/' . $headline->file) }}">
+                                        <a href="{{ asset('storage/app/file' . $headline->file) }}">参考資料</a>
                                     @endif
                                 </div>
                                 <div class="name p-2">
@@ -45,7 +45,7 @@
                             </div>
                             <div class="file col-md-6 text-right mt-4">
                                 @if ($post->file)
-                                    <img src="{{ asset('storage/file/' . $post->file) }}">
+                                    <a href="{{ asset('storage/app/file/' . $post->file) }}">参考資料</a>
                                 @endif
                             </div>
                         </div>
