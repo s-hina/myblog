@@ -24,7 +24,7 @@ class WorkController extends Controller
         $form = $request->all();
 
         if (isset($form['file'])) {
-            $path = $request->file('file')->store('');
+            $path = $request->file('file')->store('public/file');
             $work->file = basename($path);
         } else {
             $work->file = null;
@@ -33,7 +33,7 @@ class WorkController extends Controller
         // フォームから送信されてきた_tokenを削除する
         unset($form['_token']);
         // フォームから送信されてきたimageを削除する
-        unset($form['image']);
+        unset($form['file']);
     
         $work->fill($form);
         $work->save();
@@ -73,7 +73,7 @@ class WorkController extends Controller
         //送信されてきたフォームデータを格納
         $work_form = $request->all();
         if (isset($work_form['file'])) {
-            $path = $request->file('file')->store('');
+            $path = $request->file('file')->store('public/file');
             $work->file = basename($path);
             unset($work_form['file']);
         } elseif (0 == strcmp($request->remove, 'true')) {
